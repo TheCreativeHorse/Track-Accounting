@@ -5,10 +5,10 @@ export default function Testimonials() {
     <section id="testimonials" className="section-padding bg-gradient-to-br from-navy-dark/10 via-white to-navy/10 relative overflow-hidden">
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl mb-4 text-navy-dark">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-navy-dark">
             What Our Clients Say About Us
           </h2>
-          <p className="text-lg sm:text-xl text-gray max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray max-w-3xl mx-auto px-4">
             Don't just take our word for it. Here's what business owners are saying about Track Accounting.
           </p>
         </div>
