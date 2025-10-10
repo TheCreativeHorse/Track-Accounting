@@ -39,23 +39,23 @@ export default function Hero() {
   }
 
   return (
-        <section className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden pt-16 sm:pt-20">
+        <section className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden pt-20 sm:pt-24">
       <div className="absolute inset-0 w-full h-full bg-navy-dark z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
       <Boxes />
       <div className="container-custom relative z-30">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="text-white text-center lg:text-left">
-            <h1 className="font-heading font-bold text-3xl xs:text-4xl sm:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
+            <h1 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4 sm:mb-6 leading-tight px-4">
               Accounting That Lets You Focus on Growing Your Business
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0 px-4">
               Reliable tax filing, streamlined bookkeeping, and payroll support so you stay compliant and spend less time on numbers.
             </p>
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl max-w-md mx-auto lg:max-w-none lg:mx-0">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl max-w-md mx-auto lg:max-w-none lg:mx-0 mx-4 lg:mx-0">
             <h3 className="font-heading font-semibold text-xl sm:text-2xl text-navy-dark-dark mb-4 sm:mb-6 text-center">
               Get Your Free Consultation
             </h3>

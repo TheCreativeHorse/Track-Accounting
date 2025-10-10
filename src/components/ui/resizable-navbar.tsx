@@ -39,8 +39,7 @@ export function NavbarLogo({ className, ...props }: any) {
         <img 
           src="/Logo-Track.svg" 
           alt="Track Accounting Logo" 
-          style={{height: '120px', width: 'auto'}}
-          className="mr-2 sm:mr-3"
+          className="h-8 w-auto sm:h-10 md:h-12 mr-2 sm:mr-3"
         />
       </div>
     </div>
@@ -96,7 +95,7 @@ export function NavbarButton({
 // Mobile Nav Container
 export function MobileNav({ children, className, ...props }: any) {
   return (
-    <div className={cn("md:hidden", className)} {...props}>
+    <div className={cn("", className)} {...props}>
       {children}
     </div>
   );
@@ -181,7 +180,7 @@ export function MobileNavMenu({
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
           className={cn(
-            "absolute top-10 sm:top-12 left-2 sm:left-4 right-2 sm:right-4 bg-white/95 backdrop-blur-md rounded-xl sm:rounded-2xl border border-neutral-200/50 shadow-lg",
+            "absolute top-12 left-2 right-2 bg-white/95 backdrop-blur-md rounded-xl border border-neutral-200/50 shadow-lg z-50",
             className
           )}
           {...props}
