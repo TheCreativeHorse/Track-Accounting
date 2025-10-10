@@ -39,7 +39,7 @@ export default function Hero() {
   }
 
   return (
-        <section className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden pt-20 sm:pt-24">
+        <section className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden pt-24 sm:pt-28">
       <div className="absolute inset-0 w-full h-full bg-navy-dark z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
       <Boxes />
       <div className="container-custom relative z-30">

@@ -30,13 +30,14 @@ export default function Header() {
         <div className="bg-white/95 backdrop-blur-md rounded-full shadow-lg border border-neutral-200/50 px-2 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4">
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-between h-10 sm:h-12">
+          <div className="hidden md:flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
               <img 
                 src="/Logo-Track.svg" 
                 alt="Track Accounting Logo" 
-                className="h-8 w-auto sm:h-10 md:h-12 mr-2 sm:mr-3"
+                style={{height: '120px', width: 'auto'}}
+                className="mr-2 sm:mr-3"
               />
             </div>
 
@@ -65,13 +66,14 @@ export default function Header() {
 
           {/* Mobile Navigation */}
           <div className="md:hidden">
-            <div className="flex items-center justify-between h-10 sm:h-12">
+            <div className="flex items-center justify-between h-16">
               {/* Logo */}
               <div className="flex items-center">
                 <img 
                   src="/Logo-Track.svg" 
                   alt="Track Accounting Logo" 
-                  className="h-8 w-auto mr-2"
+                  style={{height: '60px', width: 'auto'}}
+                  className="mr-2"
                 />
               </div>
 
@@ -104,7 +106,7 @@ export default function Header() {
 
             {/* Mobile Menu Dropdown */}
             {isMobileMenuOpen && (
-              <div className="absolute top-12 left-2 right-2 bg-white/95 backdrop-blur-md rounded-xl border border-neutral-200/50 shadow-lg z-50 mt-2">
+              <div className="absolute top-16 left-2 right-2 bg-white/95 backdrop-blur-md rounded-xl border border-neutral-200/50 shadow-lg z-50 mt-2">
                 <div className="px-4 py-3 space-y-3">
                   {navItems.map((item, idx) => (
                     <a
