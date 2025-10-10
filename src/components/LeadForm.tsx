@@ -1,0 +1,299 @@
+'use client'
+
+import { useState } from 'react'
+
+export default function LeadForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    business: '',
+    email: '',
+    phone: '',
+    services: [] as string[],
+    message: ''
+  })
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errors, setErrors] = useState<{[key: string]: string}>({})
+
+  const serviceOptions = [
+    'Tax Preparation & Filing',
+    'Bookkeeping & Reporting',
+    'Payroll & Compliance',
+    'Business Advisory',
+    'Other'
+  ]
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData({
+      ...formData,
+      [name]: value
+    })
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      })
+    }
+  }
+
+  const handleServiceChange = (service: string) => {
+    setFormData({
+      ...formData,
+      services: formData.services.includes(service)
+        ? formData.services.filter(s => s !== service)
+        : [...formData.services, service]
+    })
+  }
+
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {}
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
+    }
+
+    if (!formData.business.trim()) {
+      newErrors.business = 'Business name is required'
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required'
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address'
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required'
+    }
+
+    if (formData.services.length === 0) {
+      newErrors.services = 'Please select at least one service'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    if (!validateForm()) {
+      return
+    }
+
+    try {
+      const response = await fetch('/api/lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      
+      if (response.ok) {
+        setIsSubmitted(true)
+        setFormData({
+          name: '',
+          business: '',
+          email: '',
+          phone: '',
+          services: [],
+          message: ''
+        })
+        setErrors({})
+      } else {
+        throw new Error('Failed to submit form')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setErrors({ submit: 'Failed to submit form. Please try again.' })
+    }
+  }
+
+  return (
+    <section id="contact" className="section-padding pt-24 sm:pt-32 bg-navy-dark">
+      <div className="container-custom">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-6">
+              Ready to Simplify Your Accounting?
+            </h2>
+            <p className="text-xl text-white/90">
+              Get started today with a free consultation. Tell us about your business and we'll create a customized plan for your accounting needs.
+            </p>
+          </div>
+
+          {isSubmitted ? (
+            <div className="bg-white rounded-2xl p-12 text-center">
+                <div className="w-20 h-20 bg-navy rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="font-heading font-bold text-2xl text-navy mb-4">
+                Thanks — we'll reach out within 24 hours.
+              </h3>
+              <p className="text-gray mb-6">
+                We've received your information and our team will contact you soon to schedule your free consultation.
+              </p>
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className="btn-primary"
+                >
+                  Submit Another Request
+                </button>
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name and Business Row */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-navy mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-navy focus:border-transparent transition-all ${
+                        errors.name ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                      placeholder="Enter your full name"
+                    />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label htmlFor="business" className="block text-sm font-medium text-navy mb-2">
+                      Business Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="business"
+                      name="business"
+                      value={formData.business}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-navy focus:border-transparent transition-all ${
+                        errors.business ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                      placeholder="Enter your business name"
+                    />
+                    {errors.business && (
+                      <p className="text-red-500 text-sm mt-1">{errors.business}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Email and Phone Row */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-navy mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-navy focus:border-transparent transition-all ${
+                        errors.email ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                      placeholder="Enter your email address"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-navy mb-2">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-navy focus:border-transparent transition-all ${
+                        errors.phone ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                      placeholder="Enter your phone number"
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Services Checkboxes */}
+                <div>
+                  <label className="block text-sm font-medium text-navy mb-4">
+                    What Services Are You Interested In? *
+                  </label>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {serviceOptions.map((service) => (
+                      <label key={service} className="flex items-center space-x-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.services.includes(service)}
+                          onChange={() => handleServiceChange(service)}
+                          className="w-5 h-5 text-navy border-gray-300 rounded focus:ring-navy focus:ring-2"
+                        />
+                        <span className="text-gray">{service}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {errors.services && (
+                    <p className="text-red-500 text-sm mt-2">{errors.services}</p>
+                  )}
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-navy mb-2">
+                    Additional Comments / Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-navy focus:border-transparent transition-all resize-none"
+                    placeholder="Tell us more about your business and specific accounting needs..."
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <div className="text-center">
+          <button
+            type="submit"
+            className="btn-primary text-lg py-4 px-12"
+          >
+            Get My Free Consultation
+          </button>
+                  
+                  {errors.submit && (
+                    <p className="text-red-500 text-sm mt-4">{errors.submit}</p>
+                  )}
+                  
+                  <p className="text-sm text-gray mt-6">
+                    Your information is safe with us. We respect your privacy and will never share your data with third parties.
+                  </p>
+                </div>
+              </form>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
