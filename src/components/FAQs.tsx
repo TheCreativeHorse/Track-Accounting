@@ -45,7 +45,7 @@ export default function FAQs() {
               Frequently Asked Questions
             </h2>
             <p className="text-lg sm:text-xl text-gray px-4">
-              Have questions? We've got answers. Here are some common questions we receive from business owners.
+              Have questions? We&apos;ve got answers. Here are some common questions we receive from business owners.
             </p>
           </div>
 
@@ -107,7 +107,7 @@ export default function FAQs() {
                 Still have questions?
               </h3>
               <p className="text-gray mb-4 sm:mb-6 text-sm sm:text-base">
-                We're here to help. Schedule a free consultation to get personalized answers to your specific questions.
+                We&apos;re here to help. Schedule a free consultation to get personalized answers to your specific questions.
               </p>
               <button 
                 className="btn-primary text-sm sm:text-base px-6 sm:px-8 py-2 sm:py-3"

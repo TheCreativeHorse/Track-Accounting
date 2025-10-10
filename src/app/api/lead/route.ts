@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       services,
       message,
       timestamp: new Date().toISOString(),
-      ip: request.ip || 'unknown'
+      userAgent: request.headers.get('user-agent') || 'unknown'
     })
 
     // Simulate processing delay

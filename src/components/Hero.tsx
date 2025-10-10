@@ -68,10 +68,10 @@ export default function Hero() {
                   </svg>
                 </div>
                 <h4 className="font-heading font-semibold text-lg sm:text-xl text-navy-dark-dark mb-2">
-                  Thanks — we'll reach out within 24 hours.
+                  Thanks — we&apos;ll reach out within 24 hours.
                 </h4>
                 <p className="text-gray text-sm sm:text-base">
-                  We've received your information and will contact you soon.
+                  We&apos;ve received your information and will contact you soon.
                 </p>
               </div>
             ) : (

@@ -120,7 +120,7 @@ export default function LeadForm() {
               Ready to Simplify Your Accounting?
             </h2>
             <p className="text-xl text-white/90">
-              Get started today with a free consultation. Tell us about your business and we'll create a customized plan for your accounting needs.
+              Get started today with a free consultation. Tell us about your business and we&apos;ll create a customized plan for your accounting needs.
             </p>
           </div>
 
@@ -132,10 +132,10 @@ export default function LeadForm() {
                 </svg>
               </div>
               <h3 className="font-heading font-bold text-2xl text-navy mb-4">
-                Thanks — we'll reach out within 24 hours.
+                Thanks — we&apos;ll reach out within 24 hours.
               </h3>
               <p className="text-gray mb-6">
-                We've received your information and our team will contact you soon to schedule your free consultation.
+                We&apos;ve received your information and our team will contact you soon to schedule your free consultation.
               </p>
                 <button
                   onClick={() => setIsSubmitted(false)}

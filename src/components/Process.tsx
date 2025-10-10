@@ -55,7 +55,7 @@ export default function Process() {
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto px-4">
             Our streamlined process ensures you get the support you need without the complexity. 
-            Here's how we work together to grow your business.
+            Here&apos;s how we work together to grow your business.
           </p>
         </div>
 
@@ -157,7 +157,7 @@ export default function Process() {
               Ready to Get Started?
             </h3>
             <p className="text-gray mb-4 sm:mb-6 text-sm sm:text-base">
-              Book your free consultation today and let's discuss how we can help streamline your accounting and grow your business.
+              Book your free consultation today and let&apos;s discuss how we can help streamline your accounting and grow your business.
             </p>
             <div className="flex justify-center">
               <motion.button 

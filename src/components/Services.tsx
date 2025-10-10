@@ -53,7 +53,7 @@ export default function Services() {
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray max-w-3xl mx-auto px-4">
             We provide comprehensive accounting solutions tailored to your business needs. 
-            From bookkeeping to strategic advisory, we've got you covered.
+            From bookkeeping to strategic advisory, we&apos;ve got you covered.
           </p>
         </div>
 

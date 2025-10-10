@@ -9,7 +9,7 @@ export default function Testimonials() {
             What Our Clients Say About Us
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray max-w-3xl mx-auto px-4">
-            Don't just take our word for it. Here's what business owners are saying about Track Accounting.
+            Don&apos;t just take our word for it. Here&apos;s what business owners are saying about Track Accounting.
           </p>
         </div>
 
