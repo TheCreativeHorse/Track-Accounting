@@ -1,11 +1,24 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(150).fill(1);
-  const cols = new Array(100).fill(1);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Further reduce for mobile devices
+  const rows = isMobile ? new Array(15).fill(1) : new Array(30).fill(1);
+  const cols = isMobile ? new Array(10).fill(1) : new Array(20).fill(1);
   let colors = [
     "#174FA4", // New Blue
     "#FFFFFF", // White
