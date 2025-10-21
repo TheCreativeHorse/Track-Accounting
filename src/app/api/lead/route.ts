@@ -44,19 +44,48 @@ export async function POST(request: NextRequest) {
       to: process.env.EMAIL_TO
     })
 
-    // Configure email transporter - Use Google Workspace SMTP
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 587,
-      secure: false,
-      auth: {
-        user: 'admin@trackaccounting.ca',
-        pass: process.env.EMAIL_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: false
-      }
-    })
+    // Configure email transporter - Google Workspace SMTP with multiple options
+    let transporter;
+    
+    try {
+      // Try TLS first (port 587)
+      transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 587,
+        secure: false,
+        auth: {
+          user: 'admin@trackaccounting.ca',
+          pass: process.env.EMAIL_PASSWORD,
+        },
+        tls: {
+          rejectUnauthorized: false,
+          ciphers: 'SSLv3'
+        }
+      })
+      
+      await transporter.verify()
+      console.log('✅ TLS connection verified')
+      
+    } catch (tlsError) {
+      console.log('❌ TLS failed, trying SSL...')
+      
+      // Fallback to SSL (port 465)
+      transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'admin@trackaccounting.ca',
+          pass: process.env.EMAIL_PASSWORD,
+        },
+        tls: {
+          rejectUnauthorized: false
+        }
+      })
+      
+      await transporter.verify()
+      console.log('✅ SSL connection verified')
+    }
 
     // Prepare email content
     const emailHtml = `
