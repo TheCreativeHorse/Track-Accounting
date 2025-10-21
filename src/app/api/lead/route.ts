@@ -33,6 +33,17 @@ export async function POST(request: NextRequest) {
       userAgent: request.headers.get('user-agent') || 'unknown'
     })
 
+    // Log environment variables (without password)
+    console.log('Email configuration:', {
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      secure: process.env.EMAIL_SECURE,
+      user: process.env.EMAIL_USER,
+      hasPassword: !!process.env.EMAIL_PASSWORD,
+      from: process.env.EMAIL_FROM,
+      to: process.env.EMAIL_TO
+    })
+
     // Configure email transporter
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST || 'smtp.gmail.com',
@@ -171,7 +182,7 @@ Submitted: ${new Date(timestamp).toLocaleString()}
 
     // Send email
     try {
-      await transporter.sendMail({
+      const emailResult = await transporter.sendMail({
         from: process.env.EMAIL_FROM || 'Track Accounting <noreply@trackaccounting.ca>',
         to: process.env.EMAIL_TO || 'admin@trackaccounting.ca',
         subject: `New Lead: ${name} from ${business}`,
@@ -179,11 +190,24 @@ Submitted: ${new Date(timestamp).toLocaleString()}
         html: emailHtml,
       })
       
-      console.log(`✅ Email sent successfully for lead ${leadId}`)
-    } catch (emailError) {
+      console.log(`✅ Email sent successfully for lead ${leadId}:`, emailResult.messageId)
+    } catch (emailError: any) {
       console.error('❌ Error sending email:', emailError)
-      // Still return success to user even if email fails
-      // You can decide to return an error instead if you prefer
+      console.error('Email error details:', {
+        code: emailError?.code,
+        command: emailError?.command,
+        response: emailError?.response,
+        message: emailError?.message
+      })
+      
+      // Return error to user if email fails
+      return NextResponse.json(
+        { 
+          error: 'Failed to send email notification. Please try again or contact us directly.',
+          details: 'Email service temporarily unavailable'
+        },
+        { status: 500 }
+      )
     }
 
     return NextResponse.json(
