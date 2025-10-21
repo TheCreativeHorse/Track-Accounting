@@ -13,6 +13,8 @@ export default function LeadForm() {
     message: ''
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [errors, setErrors] = useState<{[key: string]: string}>({})
 
   const serviceOptions = [
@@ -84,7 +86,11 @@ export default function LeadForm() {
       return
     }
 
+    setIsSubmitting(true)
+    setSubmitError('')
+    
     try {
+      // Try the main API route first
       const response = await fetch('/api/lead', {
         method: 'POST',
         headers: {
@@ -106,11 +112,61 @@ export default function LeadForm() {
         })
         setErrors({})
       } else {
-        throw new Error('Failed to submit form')
+        // If main API fails, try the webhook backup
+        console.log('Main API failed, trying webhook backup...')
+        const webhookResponse = await fetch('/api/lead-webhook', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+        
+        if (webhookResponse.ok) {
+          setIsSubmitted(true)
+          setFormData({
+            name: '',
+            business: '',
+            email: '',
+            phone: '',
+            service: '',
+            services: [],
+            message: ''
+          })
+          setErrors({})
+        } else {
+          const errorData = await response.json()
+          setSubmitError(errorData.error || 'Failed to submit form. Please try again.')
+        }
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      setErrors({ submit: 'Failed to submit form. Please try again.' })
+      
+      // Fallback: Try to send email directly via mailto
+      try {
+        const subject = `New Lead: ${formData.name} from ${formData.business}`
+        const body = `Name: ${formData.name}\nEmail: ${formData.email}\nBusiness: ${formData.business}\nPhone: ${formData.phone}\nService: ${formData.service}\nMessage: ${formData.message}`
+        const mailtoLink = `mailto:admin@trackaccounting.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        
+        // Open mailto as fallback
+        window.location.href = mailtoLink
+        setIsSubmitted(true)
+        setFormData({
+          name: '',
+          business: '',
+          email: '',
+          phone: '',
+          service: '',
+          services: [],
+          message: ''
+        })
+        setErrors({})
+      } catch (fallbackError) {
+        console.error('Fallback error:', fallbackError)
+        setSubmitError('Unable to submit form. Please call us directly at +1 (365) 323-0557 or email admin@trackaccounting.ca')
+      }
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -281,12 +337,29 @@ export default function LeadForm() {
 
                 {/* Submit Button */}
                 <div className="text-center">
-          <button
-            type="submit"
-            className="btn-primary text-lg py-4 px-12"
-          >
-            Get My Free Consultation
-          </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn-primary text-lg py-4 px-12 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Submitting...
+                      </span>
+                    ) : (
+                      'Get My Free Consultation'
+                    )}
+                  </button>
+                  
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-red-700 text-sm mt-4">
+                      {submitError}
+                    </div>
+                  )}
                   
                   {errors.submit && (
                     <p className="text-red-500 text-sm mt-4">{errors.submit}</p>
