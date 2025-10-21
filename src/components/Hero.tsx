@@ -12,6 +12,8 @@ export default function Hero() {
     service: ''
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const serviceOptions = [
     'Tax Preparation & Filing',
@@ -23,6 +25,9 @@ export default function Hero() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitError('')
+    
     try {
       const response = await fetch('/api/lead', {
         method: 'POST',
@@ -35,9 +40,15 @@ export default function Hero() {
       if (response.ok) {
         setIsSubmitted(true)
         setFormData({ name: '', email: '', business: '', contactNumber: '', service: '' })
+      } else {
+        const errorData = await response.json()
+        setSubmitError(errorData.error || 'Failed to submit form. Please try again.')
       }
     } catch (error) {
       console.error('Error submitting form:', error)
+      setSubmitError('Network error. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -46,6 +57,10 @@ export default function Hero() {
       ...formData,
       [e.target.name]: e.target.value
     })
+    // Clear error when user starts typing
+    if (submitError) {
+      setSubmitError('')
+    }
   }
 
   return (
@@ -106,7 +121,7 @@ export default function Hero() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4" noValidate>
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-navy-dark-dark mb-1 sm:mb-2">
                     Full Name *
@@ -118,6 +133,7 @@ export default function Hero() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
+                    autoComplete="name"
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="Enter your full name"
                   />
@@ -134,6 +150,7 @@ export default function Hero() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    autoComplete="email"
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="Enter your email address"
                   />
@@ -166,6 +183,7 @@ export default function Hero() {
                     value={formData.contactNumber}
                     onChange={handleInputChange}
                     required
+                    autoComplete="tel"
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="Enter your contact number"
                   />
@@ -194,10 +212,27 @@ export default function Hero() {
 
                 <button
                   type="submit"
-                  className="btn-primary w-full text-sm sm:text-base py-3 sm:py-4"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full text-sm sm:text-base py-3 sm:py-4 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Get My Free Consultation
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Submitting...
+                    </span>
+                  ) : (
+                    'Get My Free Consultation'
+                  )}
                 </button>
+
+                {submitError && (
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-3 text-red-700 text-sm">
+                    {submitError}
+                  </div>
+                )}
 
                 <p className="text-xs sm:text-sm text-gray text-center">
                   Your information is safe with us. We respect your privacy.
