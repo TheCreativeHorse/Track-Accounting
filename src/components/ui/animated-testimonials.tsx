@@ -100,11 +100,11 @@ export const AnimatedTestimonials = ({
             ))}
           </motion.p>
 
-          <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="flex flex-col items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-navy-dark to-navy rounded-full flex items-center justify-center text-white font-bold text-base sm:text-lg">
               {testimonials[active].name.charAt(0)}
             </div>
-            <div className="text-center sm:text-left">
+            <div className="text-center">
               <h3 className="text-lg sm:text-xl font-semibold text-navy-dark">
                 {testimonials[active].name}
               </h3>

@@ -49,10 +49,10 @@ export default function Hero() {
   }
 
   return (
-        <section className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden pt-16">
+        <section className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden pt-16 pb-16 sm:pb-20">
       <div className="absolute inset-0 w-full h-full bg-navy-dark z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
       <Boxes />
-      <div className="container-custom relative z-30">
+      <div className="container-custom relative z-30 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="text-white text-center lg:text-left">
@@ -86,7 +86,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Form */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl max-w-md mx-auto lg:max-w-none lg:mx-0 mx-4 lg:mx-0">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl max-w-md mx-auto lg:max-w-none lg:mx-0 mx-4 lg:mx-0 my-8 sm:my-12">
             <h3 className="font-heading font-semibold text-xl sm:text-2xl text-navy-dark-dark mb-4 sm:mb-6 text-center">
               Get Your Free Consultation
             </h3>
