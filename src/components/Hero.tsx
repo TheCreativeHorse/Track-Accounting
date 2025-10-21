@@ -29,7 +29,7 @@ export default function Hero() {
     setSubmitError('')
     
     try {
-      // Try the API route first
+      // Try the main API route first
       const response = await fetch('/api/lead', {
         method: 'POST',
         headers: {
@@ -42,8 +42,23 @@ export default function Hero() {
         setIsSubmitted(true)
         setFormData({ name: '', email: '', business: '', contactNumber: '', service: '' })
       } else {
-        const errorData = await response.json()
-        setSubmitError(errorData.error || 'Failed to submit form. Please try again.')
+        // If main API fails, try the webhook backup
+        console.log('Main API failed, trying webhook backup...')
+        const webhookResponse = await fetch('/api/lead-webhook', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+        
+        if (webhookResponse.ok) {
+          setIsSubmitted(true)
+          setFormData({ name: '', email: '', business: '', contactNumber: '', service: '' })
+        } else {
+          const errorData = await response.json()
+          setSubmitError(errorData.error || 'Failed to submit form. Please try again.')
+        }
       }
     } catch (error) {
       console.error('Error submitting form:', error)
