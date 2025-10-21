@@ -29,6 +29,7 @@ export default function Hero() {
     setSubmitError('')
     
     try {
+      // Try the API route first
       const response = await fetch('/api/lead', {
         method: 'POST',
         headers: {
@@ -46,7 +47,21 @@ export default function Hero() {
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      setSubmitError('Network error. Please check your connection and try again.')
+      
+      // Fallback: Try to send email directly via mailto
+      try {
+        const subject = `New Lead: ${formData.name} from ${formData.business}`
+        const body = `Name: ${formData.name}\nEmail: ${formData.email}\nBusiness: ${formData.business}\nContact Number: ${formData.contactNumber}\nService Needed: ${formData.service}`
+        const mailtoLink = `mailto:admin@trackaccounting.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+        
+        // Open mailto as fallback
+        window.location.href = mailtoLink
+        setIsSubmitted(true)
+        setFormData({ name: '', email: '', business: '', contactNumber: '', service: '' })
+      } catch (fallbackError) {
+        console.error('Fallback error:', fallbackError)
+        setSubmitError('Unable to submit form. Please call us directly at +1 (365) 323-0557 or email admin@trackaccounting.ca')
+      }
     } finally {
       setIsSubmitting(false)
     }
