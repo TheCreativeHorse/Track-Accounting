@@ -32,9 +32,21 @@ export async function GET(request: NextRequest) {
     await transporter.verify()
     console.log('✅ Email configuration is valid')
 
+    // Send a test email
+    const testEmailResult = await transporter.sendMail({
+      from: process.env.EMAIL_FROM || 'admin@trackaccounting.ca',
+      to: process.env.EMAIL_TO || 'admin@trackaccounting.ca',
+      subject: 'Test Email from Track Accounting Website',
+      text: 'This is a test email to verify the email configuration is working.',
+      html: '<h2>Test Email</h2><p>This is a test email to verify the email configuration is working.</p>'
+    })
+
+    console.log('✅ Test email sent:', testEmailResult.messageId)
+
     return NextResponse.json({
       success: true,
-      message: 'Email configuration is working',
+      message: 'Email configuration is working and test email sent',
+      messageId: testEmailResult.messageId,
       config: {
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,

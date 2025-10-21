@@ -42,9 +42,9 @@ export default function Hero() {
         setIsSubmitted(true)
         setFormData({ name: '', email: '', business: '', contactNumber: '', service: '' })
       } else {
-        // If main API fails, try the webhook backup
-        console.log('Main API failed, trying webhook backup...')
-        const webhookResponse = await fetch('/api/lead-webhook', {
+        // If main API fails, try the alternative email service
+        console.log('Main API failed, trying alternative email service...')
+        const emailResponse = await fetch('/api/send-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -52,12 +52,27 @@ export default function Hero() {
           body: JSON.stringify(formData),
         })
         
-        if (webhookResponse.ok) {
+        if (emailResponse.ok) {
           setIsSubmitted(true)
           setFormData({ name: '', email: '', business: '', contactNumber: '', service: '' })
         } else {
-          const errorData = await response.json()
-          setSubmitError(errorData.error || 'Failed to submit form. Please try again.')
+          // If alternative email fails, try the webhook backup
+          console.log('Alternative email failed, trying webhook backup...')
+          const webhookResponse = await fetch('/api/lead-webhook', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          })
+          
+          if (webhookResponse.ok) {
+            setIsSubmitted(true)
+            setFormData({ name: '', email: '', business: '', contactNumber: '', service: '' })
+          } else {
+            const errorData = await response.json()
+            setSubmitError(errorData.error || 'Failed to submit form. Please try again.')
+          }
         }
       }
     } catch (error) {

@@ -44,12 +44,17 @@ export async function POST(request: NextRequest) {
       to: process.env.EMAIL_TO
     })
 
-    // Configure email transporter - Use Gmail with proper settings
+    // Configure email transporter - Use Google Workspace SMTP
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
       auth: {
         user: 'admin@trackaccounting.ca',
         pass: process.env.EMAIL_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false
       }
     })
 
