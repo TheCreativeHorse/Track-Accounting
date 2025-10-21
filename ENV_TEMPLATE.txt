@@ -1,0 +1,7 @@
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_SECURE=false
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-app-password-here
+EMAIL_FROM=Track Accounting <noreply@trackaccounting.ca>
+EMAIL_TO=admin@trackaccounting.ca

@@ -8,6 +8,7 @@ export default function LeadForm() {
     business: '',
     email: '',
     phone: '',
+    service: '',
     services: [] as string[],
     message: ''
   })
@@ -22,7 +23,7 @@ export default function LeadForm() {
     'Other'
   ]
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData({
       ...formData,
@@ -67,8 +68,9 @@ export default function LeadForm() {
       newErrors.phone = 'Phone number is required'
     }
 
-    if (formData.services.length === 0) {
-      newErrors.services = 'Please select at least one service'
+
+    if (!formData.service.trim()) {
+      newErrors.service = 'Please select a service'
     }
 
     setErrors(newErrors)
@@ -98,6 +100,7 @@ export default function LeadForm() {
           business: '',
           email: '',
           phone: '',
+          service: '',
           services: [],
           message: ''
         })
@@ -112,7 +115,7 @@ export default function LeadForm() {
   }
 
   return (
-    <section id="contact" className="section-padding pt-24 sm:pt-32 bg-navy-dark">
+    <section id="contact" className="section-padding pt-16 bg-navy-dark">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
@@ -233,28 +236,32 @@ export default function LeadForm() {
                   </div>
                 </div>
 
-                {/* Services Checkboxes */}
+                {/* Service Row */}
                 <div>
-                  <label className="block text-sm font-medium text-navy mb-4">
-                    What Services Are You Interested In? *
+                  <label htmlFor="service" className="block text-sm font-medium text-navy mb-2">
+                    Service Needed *
                   </label>
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleInputChange}
+                    className={`w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-navy focus:border-transparent transition-all ${
+                      errors.service ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                  >
+                    <option value="">Select a service</option>
                     {serviceOptions.map((service) => (
-                      <label key={service} className="flex items-center space-x-3 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={formData.services.includes(service)}
-                          onChange={() => handleServiceChange(service)}
-                          className="w-5 h-5 text-navy border-gray-300 rounded focus:ring-navy focus:ring-2"
-                        />
-                        <span className="text-gray">{service}</span>
-                      </label>
+                      <option key={service} value={service}>
+                        {service}
+                      </option>
                     ))}
-                  </div>
-                  {errors.services && (
-                    <p className="text-red-500 text-sm mt-2">{errors.services}</p>
+                  </select>
+                  {errors.service && (
+                    <p className="text-red-500 text-sm mt-1">{errors.service}</p>
                   )}
                 </div>
+
 
                 {/* Message */}
                 <div>

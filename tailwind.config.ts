@@ -24,10 +24,12 @@ const config: Config = {
       colors: {
         navy: '#4A6B8A', // Lighter shade of #1F3855
         'navy-dark': '#174FA4', // Updated blue color
+        'navy-dark-dark': '#1e3a5f', // Darker shade for text
         'navy-light': '#7A9BB8', // Even lighter shade
         teal: '#4A6B8A',
         'light-blue': '#174FA4', // Changed to navy-dark
         gray: '#6C757D',
+        gold: '#FFD700', // For hover effects
       },
       fontFamily: {
         'heading': ['Poppins', 'Arial', 'sans-serif'],
@@ -43,7 +45,10 @@ const config: Config = {
         'container-lg': '1024px',
       },
       spacing: {
+        '15': '3.75rem', // 60px
         '18': '4.5rem',
+        '20': '5rem', // 80px
+        '25': '6.25rem', // 100px
         '88': '22rem',
       },
       fontSize: {
