@@ -50,11 +50,11 @@ export async function POST(request: NextRequest) {
     try {
       // Try TLS first (port 587)
       transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
+        host: process.env.EMAIL_HOST,
+        port: parseInt(process.env.EMAIL_PORT || '587'),
+        secure: process.env.EMAIL_SECURE === 'true',
         auth: {
-          user: 'admin@trackaccounting.ca',
+          user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
         },
         tls: {
@@ -71,11 +71,11 @@ export async function POST(request: NextRequest) {
       
       // Fallback to SSL (port 465)
       transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
+        host: process.env.EMAIL_HOST,
         port: 465,
         secure: true,
         auth: {
-          user: 'admin@trackaccounting.ca',
+          user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
         },
         tls: {
