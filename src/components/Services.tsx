@@ -45,13 +45,13 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="section-padding bg-white">
+    <section id="services" className="section-padding bg-navy-dark">
       <div className="container-custom">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-navy-dark mb-4 sm:mb-6">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6">
             Our Core Services
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto px-4">
             We provide comprehensive accounting solutions tailored to your business needs. 
             From bookkeeping to strategic advisory, we&apos;ve got you covered.
           </p>

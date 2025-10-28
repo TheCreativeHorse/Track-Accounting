@@ -6,19 +6,13 @@ import { cn } from "@/lib/utils";
 // Navbar Container
 export function Navbar({ children, className, ...props }: any) {
   return (
-    <nav
-      className={cn(
-        "fixed top-3 sm:top-6 z-50 w-full px-2 sm:px-4",
-        className
-      )}
-      {...props}
-    >
-      <div className="max-w-6xl mx-auto">
-        <div className="bg-white/95 backdrop-blur-md rounded-full shadow-lg border border-neutral-200/50 px-2 sm:px-4 md:px-6 lg:px-8 py-3 sm:py-4">
+    <header className={cn("w-full border-b border-neutral-200 bg-white", className)} {...props}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-[88px] items-center justify-between">
           {children}
         </div>
       </div>
-    </nav>
+    </header>
   );
 }
 
@@ -34,15 +28,22 @@ export function NavBody({ children, className, ...props }: any) {
 // Navbar Logo
 export function NavbarLogo({ className, ...props }: any) {
   return (
-    <div className={cn("flex items-center", className)} {...props}>
-      <div className="flex-shrink-0 flex items-center">
-        <img 
-          src="/Logo-Track.svg" 
-          alt="Track Accounting Logo" 
-          className="h-8 w-auto sm:h-10 md:h-12 mr-2 sm:mr-3"
-        />
-      </div>
-    </div>
+    <a href="/" className={cn("block", className)} {...props}>
+      {/* Prefer SVG for crispness */}
+      <img
+        src="/Logo-Track.svg"
+        alt="Track Accounting Logo"
+        className="h-[64px] w-auto object-contain"
+      />
+      {/* If you must use PNG, uncomment and use 2x for sharpness
+      <img
+        src="/logo-128.png"
+        srcset="/logo-128.png 1x, /logo-256.png 2x"
+        alt="Track Accounting Logo"
+        className="h-[64px] w-auto object-contain"
+      />
+      */}
+    </a>
   );
 }
 
@@ -180,7 +181,7 @@ export function MobileNavMenu({
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
           className={cn(
-            "absolute top-12 left-2 right-2 bg-white/95 backdrop-blur-md rounded-xl border border-neutral-200/50 shadow-lg z-50",
+            "absolute top-[88px] left-0 right-0 bg-white border-b border-neutral-200 shadow-lg z-50",
             className
           )}
           {...props}

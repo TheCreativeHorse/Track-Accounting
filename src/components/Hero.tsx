@@ -109,26 +109,44 @@ export default function Hero() {
   }
 
   return (
-        <section className="relative min-h-screen flex items-center bg-navy-dark overflow-hidden pt-16 pb-16 sm:pb-20">
-      <div className="absolute inset-0 w-full h-full bg-navy-dark z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-      <Boxes />
-      <div className="container-custom relative z-30 py-8 sm:py-12">
+    <section className="relative min-h-screen flex items-center bg-white pt-16 pb-16 sm:pb-20">
+      
+      <div className="container-custom py-8 sm:py-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="text-white text-center lg:text-left">
-            <h1 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4 sm:mb-6 leading-tight px-4">
-              Accounting That Lets You Focus on Growing Your Business
+          <div className="text-navy-dark text-center lg:text-left">
+            <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
+              Stay on track, <span className="text-navy-dark">stay ahead!</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0 px-4">
-              Reliable tax filing, streamlined bookkeeping, and payroll support so you stay compliant and spend less time on numbers.
+            
+            {/* Navy blue horizontal line */}
+            <div className="w-20 h-1 bg-navy-dark mb-6 mx-auto lg:mx-0 rounded-full"></div>
+            
+            <p className="text-base sm:text-lg md:text-xl mb-6 text-navy-dark leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              We help business owners simplify finances, stay tax-ready, and make smarter decisions — with reliable support, zero jargon, and modern tech-driven accounting solutions.
             </p>
-            <div className="px-4 mb-6 sm:mb-8">
+            
+            <p className="text-base sm:text-lg md:text-xl mb-6 text-navy-dark leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              As a new-age firm, we leverage cloud platforms and automation to keep your books accurate, compliant, and always accessible.
+            </p>
+            
+            <div className="mb-8">
+              <a 
+                href="#contact" 
+                className="inline-flex items-center bg-navy-dark text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-navy transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Get Started
+              </a>
+            </div>
+            
+            {/* Contact Number */}
+            <div className="mb-8">
               <a 
                 href="tel:+13653230557" 
-                className="inline-flex items-center gap-2 text-white text-lg sm:text-xl md:text-2xl font-semibold hover:text-gold transition-colors"
+                className="inline-flex items-center gap-2 text-navy-dark text-lg font-semibold hover:text-blue-600 transition-colors"
               >
                 <svg 
-                  className="w-5 h-5 sm:w-6 sm:h-6" 
+                  className="w-5 h-5" 
                   fill="none" 
                   stroke="currentColor" 
                   viewBox="0 0 24 24"
@@ -145,30 +163,30 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Form */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 shadow-2xl max-w-md mx-auto lg:max-w-none lg:mx-0 mx-4 lg:mx-0 my-8 sm:my-12">
-            <h3 className="font-heading font-semibold text-xl sm:text-2xl text-navy-dark-dark mb-4 sm:mb-6 text-center">
-              Get Your Free Consultation
+          {/* Right Column - Contact Form */}
+          <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg max-w-md mx-auto lg:max-w-none lg:mx-0">
+            <h3 className="font-heading font-semibold text-2xl text-navy-dark mb-6 text-center">
+              Contact Us
             </h3>
             
             {isSubmitted ? (
-              <div className="text-center py-6 sm:py-8">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-navy-dark rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-                  <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="text-center py-8">
+                <div className="w-16 h-16 bg-navy-dark rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h4 className="font-heading font-semibold text-lg sm:text-xl text-navy-dark-dark mb-2">
+                <h4 className="font-heading font-semibold text-xl text-navy-dark mb-2">
                   Thanks — we&apos;ll reach out within 24 hours.
                 </h4>
-                <p className="text-gray text-sm sm:text-base">
+                <p className="text-gray-600 text-sm">
                   We&apos;ve received your information and will contact you soon.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-navy-dark-dark mb-1 sm:mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-navy-dark mb-2">
                     Full Name *
                   </label>
                   <input
@@ -179,13 +197,13 @@ export default function Hero() {
                     onChange={handleInputChange}
                     required
                     autoComplete="name"
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-dark focus:border-navy-dark transition-all hover:border-navy-dark/50"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-navy-dark mb-1 sm:mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-navy-dark mb-2">
                     Email Address *
                   </label>
                   <input
@@ -196,13 +214,13 @@ export default function Hero() {
                     onChange={handleInputChange}
                     required
                     autoComplete="email"
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-dark focus:border-navy-dark transition-all hover:border-navy-dark/50"
                     placeholder="Enter your email address"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="business" className="block text-sm font-medium text-navy-dark mb-1 sm:mb-2">
+                  <label htmlFor="business" className="block text-sm font-medium text-navy-dark mb-2">
                     Business Name *
                   </label>
                   <input
@@ -212,13 +230,13 @@ export default function Hero() {
                     value={formData.business}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-dark focus:border-navy-dark transition-all hover:border-navy-dark/50"
                     placeholder="Enter your business name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="contactNumber" className="block text-sm font-medium text-navy-dark mb-1 sm:mb-2">
+                  <label htmlFor="contactNumber" className="block text-sm font-medium text-navy-dark mb-2">
                     Contact Number *
                   </label>
                   <input
@@ -229,13 +247,13 @@ export default function Hero() {
                     onChange={handleInputChange}
                     required
                     autoComplete="tel"
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-dark focus:border-navy-dark transition-all hover:border-navy-dark/50"
                     placeholder="Enter your contact number"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-navy-dark mb-1 sm:mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-navy-dark mb-2">
                     Service Needed *
                   </label>
                   <select
@@ -244,7 +262,7 @@ export default function Hero() {
                     value={formData.service}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-navy-dark focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-navy-dark focus:border-navy-dark transition-all hover:border-navy-dark/50"
                   >
                     <option value="">Select a service</option>
                     {serviceOptions.map((service) => (
@@ -258,7 +276,7 @@ export default function Hero() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full text-sm sm:text-base py-3 sm:py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-navy-dark text-white py-3 px-6 rounded-lg font-semibold hover:bg-navy transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
@@ -279,7 +297,7 @@ export default function Hero() {
                   </div>
                 )}
 
-                <p className="text-xs sm:text-sm text-gray text-center">
+                <p className="text-xs text-gray-500 text-center">
                   Your information is safe with us. We respect your privacy.
                 </p>
               </form>

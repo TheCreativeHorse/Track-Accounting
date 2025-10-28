@@ -2,7 +2,7 @@ import AnimatedTestimonialsDemo from './animated-testimonials-demo'
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section-padding bg-gradient-to-br from-navy-dark/10 via-white to-navy/10 relative overflow-hidden">
+    <section id="testimonials" className="section-padding bg-white">
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-navy-dark">

@@ -5,12 +5,12 @@ import { useState } from 'react'
 export default function Header() {
   const navItems = [
     {
-      name: "Services",
-      link: "#services",
+      name: "Home",
+      link: "#",
     },
     {
-      name: "About",
-      link: "#process",
+      name: "Services",
+      link: "#services",
     },
     {
       name: "Testimonials",
@@ -34,30 +34,28 @@ export default function Header() {
             <img 
               src="/Logo-Track.svg" 
               alt="Track Accounting Logo" 
-              className="h-25 w-auto min-w-[200px] max-w-[400px]"
+              className="h-32 w-auto min-w-[260px] max-w-[520px]"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center">
-            <div className="bg-gray-100 rounded-lg px-4 py-2 flex items-center space-x-6">
-              {navItems.map((item, index) => (
-                <a
-                  key={`desktop-link-${index}`}
-                  href={item.link}
-                  className="text-gray-700 hover:text-navy-dark transition-colors text-sm font-medium uppercase tracking-wide"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item, index) => (
+              <a
+                key={`desktop-link-${index}`}
+                href={item.link}
+                className="text-sm font-medium uppercase tracking-wide text-gray-800 hover:text-navy-dark transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
 
-          {/* Call Button - Desktop */}
+          {/* Contact Number Button - Desktop */}
           <div className="hidden md:flex items-center">
             <a 
               href="tel:+13653230557" 
-              className="bg-navy-dark text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-navy transition-colors inline-block"
+              className="bg-navy-dark text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-navy transition-colors inline-block"
             >
               Call +1 (365) 323-0557
             </a>
