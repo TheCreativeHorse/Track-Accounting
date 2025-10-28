@@ -65,7 +65,7 @@ export default function Header() {
           <div className="md:hidden flex items-center space-x-3">
             <a 
               href="tel:+13653230557" 
-              className="bg-navy-dark text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-navy transition-colors inline-block"
+              className="bg-navy-dark text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-navy transition-colors inline-block whitespace-nowrap"
             >
               Call Now
             </a>
