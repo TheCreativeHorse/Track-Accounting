@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 // Navbar Container
@@ -28,7 +29,7 @@ export function NavBody({ children, className, ...props }: any) {
 // Navbar Logo
 export function NavbarLogo({ className, ...props }: any) {
   return (
-    <a href="/" className={cn("block", className)} {...props}>
+    <Link href="/" className={cn("block", className)} {...props}>
       {/* Prefer SVG for crispness */}
       <img
         src="/Logo-Track.svg"
@@ -43,7 +44,7 @@ export function NavbarLogo({ className, ...props }: any) {
         className="h-[64px] w-auto object-contain"
       />
       */}
-    </a>
+    </Link>
   );
 }
 
