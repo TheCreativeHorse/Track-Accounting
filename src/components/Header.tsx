@@ -26,15 +26,15 @@ export default function Header() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-16 min-w-0">
           
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <img 
               src="/Logo-Track.svg" 
               alt="Track Accounting Logo" 
-              className="h-32 w-auto min-w-[260px] max-w-[520px]"
+              className="h-12 md:h-32 w-auto min-w-[100px] md:min-w-[260px] max-w-[200px] md:max-w-[520px]"
             />
           </div>
 
@@ -62,25 +62,25 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-3">
+          <div className="md:hidden flex items-center space-x-2">
             <a 
               href="tel:+13653230557" 
-              className="bg-navy-dark text-white px-4 py-2 rounded-lg text-xs font-medium hover:bg-navy transition-colors inline-block whitespace-nowrap"
+              className="bg-navy-dark text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-navy transition-colors inline-block whitespace-nowrap"
             >
               Call Now
             </a>
             
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-md text-gray-600 hover:text-navy-dark hover:bg-gray-100 transition-colors"
+              className="p-1.5 rounded-md text-gray-600 hover:text-navy-dark hover:bg-gray-100 transition-colors"
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               )}
