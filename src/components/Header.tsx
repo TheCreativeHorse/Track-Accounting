@@ -34,7 +34,7 @@ export default function Header() {
             <img 
               src="/Logo-Track.svg" 
               alt="Track Accounting Logo" 
-              className="h-12 md:h-32 w-auto min-w-[100px] md:min-w-[260px] max-w-[200px] md:max-w-[520px]"
+              className="h-20 md:h-32 w-auto min-w-[160px] md:min-w-[260px] max-w-[320px] md:max-w-[520px]"
             />
           </div>
 
@@ -62,25 +62,25 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-1">
             <a 
               href="tel:+13653230557" 
-              className="bg-navy-dark text-white px-3 py-1.5 rounded text-xs font-medium hover:bg-navy transition-colors inline-block whitespace-nowrap"
+              className="bg-navy-dark text-white px-2 py-1 rounded text-xs font-medium hover:bg-navy transition-colors inline-block whitespace-nowrap"
             >
               Call Now
             </a>
             
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-1.5 rounded-md text-gray-600 hover:text-navy-dark hover:bg-gray-100 transition-colors"
+              className="p-1 rounded-md text-gray-600 hover:text-navy-dark hover:bg-gray-100 transition-colors"
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? (
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               )}
