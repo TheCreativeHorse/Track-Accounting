@@ -124,9 +124,7 @@ export default function Hero() {
               <img
                 src="/Logo-Track.svg"
                 alt="Track Accounting Logo"
-                width="300"
-                height="192"
-                style={{ width: '300px', height: '192px', maxWidth: '300px', maxHeight: '192px' }}
+                className="w-[120px] h-[77px] sm:w-[180px] sm:h-[115px] md:w-[240px] md:h-[154px] lg:w-[300px] lg:h-[192px]"
               />
             </a>
           </div>
