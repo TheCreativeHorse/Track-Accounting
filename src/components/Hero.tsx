@@ -14,6 +14,7 @@ export default function Hero() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const serviceOptions = [
     'Tax Preparation & Filing',
@@ -109,9 +110,154 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center bg-white pt-16 pb-16 sm:pb-20">
-      
-      <div className="container-custom py-8 sm:py-12 relative z-10">
+    <section className="relative min-h-screen flex flex-col bg-white pb-16 sm:pb-20">
+      {/* Navigation Bar with Logo */}
+      <nav className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-2">
+          {/* Logo - Extreme Left */}
+          <div className="flex-shrink-0">
+            <a
+              href="https://trackaccounting.ca"
+              className="inline-block transition-transform duration-200 hover:scale-105"
+              aria-label="Track Accounting Home"
+            >
+              <img
+                src="/Logo-Track.svg"
+                alt="Track Accounting Logo"
+                width="300"
+                height="192"
+                style={{ width: '300px', height: '192px', maxWidth: '300px', maxHeight: '192px' }}
+              />
+            </a>
+          </div>
+
+          {/* Navigation Links - Center */}
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
+            <a
+              href="#"
+              className="text-base font-semibold text-gray-800 hover:text-navy-dark transition-colors duration-200 px-4 py-2"
+            >
+              Home
+            </a>
+            <a
+              href="#services"
+              className="text-base font-semibold text-gray-800 hover:text-navy-dark transition-colors duration-200 px-4 py-2"
+            >
+              Services
+            </a>
+            <a
+              href="#about"
+              className="text-base font-semibold text-gray-800 hover:text-navy-dark transition-colors duration-200 px-4 py-2"
+            >
+              About Us
+            </a>
+            <a
+              href="#contact"
+              className="text-base font-semibold text-gray-800 hover:text-navy-dark transition-colors duration-200 px-4 py-2"
+            >
+              Contact Us
+            </a>
+          </div>
+
+          {/* Phone Number - Extreme Right */}
+          <div className="hidden md:flex items-center flex-shrink-0">
+            <a
+              href="tel:+13653230557"
+              className="flex items-center gap-2 bg-navy-dark text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-navy hover:shadow-lg transition-all duration-200"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              +1 (365) 323-0557
+            </a>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-md text-gray-600 hover:text-navy-dark hover:bg-gray-100 transition-colors duration-200"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200 py-4">
+            <div className="flex flex-col space-y-2">
+              <a
+                href="#"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-semibold text-gray-800 hover:text-navy-dark hover:bg-gray-50 transition-colors duration-200 px-4 py-3 rounded-md"
+              >
+                Home
+              </a>
+              <a
+                href="#services"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-semibold text-gray-800 hover:text-navy-dark hover:bg-gray-50 transition-colors duration-200 px-4 py-3 rounded-md"
+              >
+                Services
+              </a>
+              <a
+                href="#about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-semibold text-gray-800 hover:text-navy-dark hover:bg-gray-50 transition-colors duration-200 px-4 py-3 rounded-md"
+              >
+                About Us
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-base font-semibold text-gray-800 hover:text-navy-dark hover:bg-gray-50 transition-colors duration-200 px-4 py-3 rounded-md"
+              >
+                Contact Us
+              </a>
+              <a
+                href="tel:+13653230557"
+                className="flex items-center justify-center gap-2 bg-navy-dark text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-navy transition-colors duration-200 mt-4"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+                +1 (365) 323-0557
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* Hero Content */}
+      <div className="container-custom flex-1 flex items-center py-8 sm:py-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="text-navy-dark text-center lg:text-left">

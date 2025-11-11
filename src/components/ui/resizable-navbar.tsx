@@ -34,16 +34,10 @@ export function NavbarLogo({ className, ...props }: any) {
       <img
         src="/Logo-Track.svg"
         alt="Track Accounting Logo"
-        className="h-[64px] w-auto object-contain"
+        width="300"
+        height="192"
+        style={{ width: '300px', height: '192px', maxWidth: '300px', maxHeight: '192px' }}
       />
-      {/* If you must use PNG, uncomment and use 2x for sharpness
-      <img
-        src="/logo-128.png"
-        srcset="/logo-128.png 1x, /logo-256.png 2x"
-        alt="Track Accounting Logo"
-        className="h-[64px] w-auto object-contain"
-      />
-      */}
     </Link>
   );
 }
