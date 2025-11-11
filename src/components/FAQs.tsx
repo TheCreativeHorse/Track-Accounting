@@ -41,7 +41,7 @@ export default function FAQs() {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-navy-dark mb-4 sm:mb-6">
+            <h2 className="font-sans font-normal text-2xl sm:text-3xl md:text-4xl text-black mb-4 sm:mb-6">
               Frequently Asked Questions
             </h2>
             <p className="text-lg sm:text-xl text-gray px-4">
@@ -62,12 +62,12 @@ export default function FAQs() {
                   aria-controls={`faq-answer-${index}`}
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="font-heading font-semibold text-base sm:text-lg text-navy-dark pr-4 sm:pr-8">
+                    <h3 className="font-sans font-normal text-base sm:text-lg text-black pr-4 sm:pr-8">
                       {faq.question}
                     </h3>
                     <div className="flex-shrink-0">
                       <svg
-                        className={`w-5 h-5 sm:w-6 sm:h-6 text-navy-dark transition-transform duration-300 ${
+                        className={`w-5 h-5 sm:w-6 sm:h-6 text-black transition-transform duration-300 ${
                           openIndex === index ? 'rotate-180' : ''
                         }`}
                         fill="none"
@@ -103,7 +103,7 @@ export default function FAQs() {
 
           <div className="text-center mt-10 sm:mt-12">
             <div className="bg-navy-dark/5 rounded-xl sm:rounded-2xl p-6 sm:p-8">
-              <h3 className="font-heading font-semibold text-lg sm:text-xl text-navy-dark mb-3 sm:mb-4">
+              <h3 className="font-sans font-normal text-lg sm:text-xl text-black mb-3 sm:mb-4">
                 Still have questions?
               </h3>
               <p className="text-gray mb-4 sm:mb-6 text-sm sm:text-base">

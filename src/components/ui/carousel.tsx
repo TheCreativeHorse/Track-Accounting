@@ -63,7 +63,7 @@ export default function Carousel({ slides, className }: CarouselProps) {
                         {slides[currentIndex].icon}
                       </div>
                     )}
-                    <h3 className="text-xl md:text-2xl font-heading font-bold text-navy">
+                    <h3 className="text-xl md:text-2xl font-sans font-normal text-navy">
                       {slides[currentIndex].title}
                     </h3>
                   </div>

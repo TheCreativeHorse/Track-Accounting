@@ -50,7 +50,7 @@ export default function Process() {
     <section id="process" className="py-16 bg-navy-dark">
       <div className="container-custom">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6 px-4">
+          <h2 className="font-sans font-normal text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6 px-4">
             How It Works
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto px-4">
@@ -81,7 +81,7 @@ export default function Process() {
                 <div className="relative mx-auto mb-4 sm:mb-6">
                   {/* Step Number Badge - Responsive sizing */}
                   <motion.div 
-                    className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-10 h-10 sm:w-12 sm:h-12 bg-white text-navy-dark rounded-full text-xs sm:text-sm font-heading font-bold flex items-center justify-center z-30 shadow-lg"
+                    className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-10 h-10 sm:w-12 sm:h-12 bg-white text-navy-dark rounded-full text-xs sm:text-sm font-sans font-normal flex items-center justify-center z-30 shadow-lg"
                     whileHover={{ 
                       scale: 1.2,
                       rotate: 360,
@@ -116,7 +116,7 @@ export default function Process() {
                 {/* Content - Responsive typography */}
                 <div className="flex flex-col flex-grow">
                   <motion.h3 
-                    className="font-heading font-semibold text-base sm:text-lg lg:text-xl text-white mb-3 sm:mb-4 leading-tight min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center px-2"
+                    className="font-sans font-normal text-base sm:text-lg lg:text-xl text-white mb-3 sm:mb-4 leading-tight min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center px-2"
                     whileHover={{ 
                       color: "#ffffff",
                       transition: { duration: 0.2 }
@@ -153,7 +153,7 @@ export default function Process() {
               transition: { duration: 0.3 }
             }}
           >
-            <h3 className="font-heading font-semibold text-xl sm:text-2xl text-navy-dark mb-3 sm:mb-4">
+            <h3 className="font-sans font-normal text-xl sm:text-2xl text-navy-dark mb-3 sm:mb-4">
               Ready to Get Started?
             </h3>
             <p className="text-gray mb-4 sm:mb-6 text-sm sm:text-base">

@@ -55,7 +55,7 @@ export default function Header() {
                 <img
                   src="/Logo-Track.svg"
                   alt="Track Accounting Logo"
-                  className="w-[120px] h-[77px] sm:w-[180px] sm:h-[115px] md:w-[240px] md:h-[154px] lg:w-[300px] lg:h-[192px]"
+                  className="w-[168px] h-[108px] sm:w-[180px] sm:h-[115px] md:w-[240px] md:h-[154px] lg:w-[300px] lg:h-[192px]"
                 />
               </a>
             </div>

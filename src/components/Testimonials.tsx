@@ -5,7 +5,7 @@ export default function Testimonials() {
     <section id="testimonials" className="section-padding bg-white">
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
-          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-navy-dark">
+          <h2 className="font-sans font-normal text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-black">
             What Our Clients Say About Us
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray max-w-3xl mx-auto px-4">

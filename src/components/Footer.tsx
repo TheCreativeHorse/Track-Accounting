@@ -2,31 +2,31 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-navy-dark">
+    <footer className="bg-white text-black">
       <div className="container-custom">
         <div className="py-12 sm:py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {/* Navigation Links */}
             <div className="text-center md:text-left">
-              <h4 className="font-heading font-semibold text-lg mb-6">Services</h4>
+              <h4 className="font-sans font-normal text-lg mb-6">Services</h4>
               <ul className="space-y-4">
                 <li>
-                  <Link href="#services" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#services" className="text-gray-600 hover:text-black transition-colors">
                     Bookkeeping & Reporting
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#services" className="text-gray-600 hover:text-black transition-colors">
                     Tax Preparation
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#services" className="text-gray-600 hover:text-black transition-colors">
                     Payroll & Compliance
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#services" className="text-gray-600 hover:text-black transition-colors">
                     Business Advisory
                   </Link>
                 </li>
@@ -35,25 +35,25 @@ export default function Footer() {
 
             {/* Company Links */}
             <div className="text-center md:text-left">
-              <h4 className="font-heading font-semibold text-lg mb-6">Company</h4>
+              <h4 className="font-sans font-normal text-lg mb-6">Company</h4>
               <ul className="space-y-4">
                 <li>
-                  <Link href="#about" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#about" className="text-gray-600 hover:text-black transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#testimonials" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#testimonials" className="text-gray-600 hover:text-black transition-colors">
                     Testimonials
                   </Link>
                 </li>
                 <li>
-                  <Link href="#process" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#process" className="text-gray-600 hover:text-black transition-colors">
                     How It Works
                   </Link>
                 </li>
                 <li>
-                  <Link href="#pricing" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <Link href="#pricing" className="text-gray-600 hover:text-black transition-colors">
                     Pricing
                   </Link>
                 </li>
@@ -62,13 +62,13 @@ export default function Footer() {
 
             {/* Contact Information */}
             <div className="text-center md:text-left">
-              <h4 className="font-heading font-semibold text-lg mb-6">Contact</h4>
+              <h4 className="font-sans font-normal text-lg mb-6">Contact</h4>
               <div className="space-y-4">
                 <div className="flex items-center justify-center md:justify-start space-x-3">
                   <svg className="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  <a href="mailto:admin@trackaccounting.ca" className="text-gray-600 hover:text-navy-dark transition-colors">
+                  <a href="mailto:admin@trackaccounting.ca" className="text-gray-600 hover:text-black transition-colors">
                     admin@trackaccounting.ca
                   </a>
                 </div>
@@ -77,7 +77,7 @@ export default function Footer() {
                     <svg className="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <a href="tel:+13653230557" className="text-gray-600 hover:text-navy-dark transition-colors">
+                    <a href="tel:+13653230557" className="text-gray-600 hover:text-black transition-colors">
                       +1 (365) 323-0557
                     </a>
                   </div>
@@ -85,7 +85,7 @@ export default function Footer() {
                     <svg className="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    <a href="tel:+16478198483" className="text-gray-600 hover:text-navy-dark transition-colors">
+                    <a href="tel:+16478198483" className="text-gray-600 hover:text-black transition-colors">
                       +1 (647) 819-8483
                     </a>
                   </div>
@@ -116,10 +116,10 @@ export default function Footer() {
               <span className="inline-block animate-bounce text-red-400 ml-1">❤️</span>
             </p>
             <div className="flex space-x-6">
-              <Link href="/privacy" className="text-gray-500 hover:text-navy-dark text-sm transition-colors">
+              <Link href="/privacy" className="text-gray-500 hover:text-black text-sm transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-500 hover:text-navy-dark text-sm transition-colors">
+              <Link href="/terms" className="text-gray-500 hover:text-black text-sm transition-colors">
                 Terms of Service
               </Link>
             </div>

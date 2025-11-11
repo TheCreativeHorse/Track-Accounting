@@ -124,7 +124,7 @@ export default function Hero() {
               <img
                 src="/Logo-Track.svg"
                 alt="Track Accounting Logo"
-                className="w-[120px] h-[77px] sm:w-[180px] sm:h-[115px] md:w-[240px] md:h-[154px] lg:w-[300px] lg:h-[192px]"
+                className="w-[168px] h-[108px] sm:w-[180px] sm:h-[115px] md:w-[240px] md:h-[154px] lg:w-[300px] lg:h-[192px]"
               />
             </a>
           </div>
@@ -144,7 +144,7 @@ export default function Hero() {
               Services
             </a>
             <a
-              href="#about"
+              href="#process"
               className="text-base font-semibold text-gray-800 hover:text-navy-dark transition-colors duration-200 px-4 py-2"
             >
               About Us
@@ -217,7 +217,7 @@ export default function Hero() {
                 Services
               </a>
               <a
-                href="#about"
+                href="#process"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-semibold text-gray-800 hover:text-navy-dark hover:bg-gray-50 transition-colors duration-200 px-4 py-3 rounded-md"
               >
@@ -258,19 +258,19 @@ export default function Hero() {
       <div className="container-custom flex-1 flex items-center py-8 sm:py-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           {/* Left Column - Content */}
-          <div className="text-navy-dark text-center lg:text-left">
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
-              Stay on track, <span className="text-navy-dark">stay ahead!</span>
+          <div className="text-black text-center lg:text-left">
+            <h1 className="font-sans font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight text-black">
+              Stay on track, <span className="text-black">stay ahead!</span>
             </h1>
             
             {/* Navy blue horizontal line */}
             <div className="w-20 h-1 bg-navy-dark mb-6 mx-auto lg:mx-0 rounded-full"></div>
             
-            <p className="text-base sm:text-lg md:text-xl mb-6 text-navy-dark leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl mb-6 text-black leading-relaxed max-w-2xl mx-auto lg:mx-0">
               We help business owners simplify finances, stay tax-ready, and make smarter decisions — with reliable support, zero jargon, and modern tech-driven accounting solutions.
             </p>
             
-            <p className="text-base sm:text-lg md:text-xl mb-6 text-navy-dark leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg md:text-xl mb-6 text-black leading-relaxed max-w-2xl mx-auto lg:mx-0">
               As a new-age firm, we leverage cloud platforms and automation to keep your books accurate, compliant, and always accessible.
             </p>
             
@@ -287,7 +287,7 @@ export default function Hero() {
             <div className="mb-8">
               <a 
                 href="tel:+13653230557" 
-                className="inline-flex items-center gap-2 text-navy-dark text-lg font-semibold hover:text-blue-600 transition-colors"
+                className="inline-flex items-center gap-2 text-black text-lg font-semibold hover:text-gray-700 transition-colors"
               >
                 <svg 
                   className="w-5 h-5" 
@@ -309,7 +309,7 @@ export default function Hero() {
 
           {/* Right Column - Contact Form */}
           <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-lg max-w-md mx-auto lg:max-w-none lg:mx-0">
-            <h3 className="font-heading font-semibold text-2xl text-navy-dark mb-6 text-center">
+            <h3 className="font-sans font-normal text-2xl text-black mb-6 text-center">
               Contact Us
             </h3>
             
@@ -320,7 +320,7 @@ export default function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h4 className="font-heading font-semibold text-xl text-navy-dark mb-2">
+                <h4 className="font-sans font-normal text-xl text-black mb-2">
                   Thanks — we&apos;ll reach out within 24 hours.
                 </h4>
                 <p className="text-gray-600 text-sm">
@@ -330,7 +330,7 @@ export default function Hero() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-navy-dark mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
                     Full Name *
                   </label>
                   <input
@@ -347,7 +347,7 @@ export default function Hero() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-navy-dark mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
                     Email Address *
                   </label>
                   <input
@@ -364,7 +364,7 @@ export default function Hero() {
                 </div>
 
                 <div>
-                  <label htmlFor="business" className="block text-sm font-medium text-navy-dark mb-2">
+                  <label htmlFor="business" className="block text-sm font-medium text-black mb-2">
                     Business Name *
                   </label>
                   <input
@@ -380,7 +380,7 @@ export default function Hero() {
                 </div>
 
                 <div>
-                  <label htmlFor="contactNumber" className="block text-sm font-medium text-navy-dark mb-2">
+                  <label htmlFor="contactNumber" className="block text-sm font-medium text-black mb-2">
                     Contact Number *
                   </label>
                   <input
@@ -397,7 +397,7 @@ export default function Hero() {
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-navy-dark mb-2">
+                  <label htmlFor="service" className="block text-sm font-medium text-black mb-2">
                     Service Needed *
                   </label>
                   <select

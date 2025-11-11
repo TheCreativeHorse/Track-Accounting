@@ -48,7 +48,7 @@ export default function Services() {
     <section id="services" className="section-padding bg-navy-dark">
       <div className="container-custom">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6">
+          <h2 className="font-sans font-normal text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6">
             Our Core Services
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto px-4">
@@ -65,7 +65,7 @@ export default function Services() {
                     {service.icon}
                   </div>
                 </div>
-              <h3 className="font-heading font-bold text-lg sm:text-xl text-navy-dark mb-3 sm:mb-4">
+              <h3 className="font-sans font-normal text-lg sm:text-xl text-black mb-3 sm:mb-4">
                 {service.title}
               </h3>
               <p className="text-gray text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
@@ -74,7 +74,7 @@ export default function Services() {
               <ul className="space-y-1 sm:space-y-2 mb-4 sm:mb-6 flex-grow">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center text-xs text-gray">
-                    <svg className="w-3 h-3 text-navy-dark mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 text-black mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {feature}

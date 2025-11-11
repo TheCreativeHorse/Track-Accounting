@@ -60,7 +60,7 @@ export default function Pricing() {
     <section id="pricing" className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center mb-8 sm:mb-12 md:mb-16">
-          <h2 className="font-heading font-bold text-2xl sm:text-3xl md:text-4xl text-navy mb-4 sm:mb-6">
+          <h2 className="font-sans font-normal text-2xl sm:text-3xl md:text-4xl text-navy mb-4 sm:mb-6">
             Simple, Transparent Pricing
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray max-w-3xl mx-auto px-4">
@@ -88,7 +88,7 @@ export default function Pricing() {
               )}
 
               <div className="text-center">
-                <h3 className="font-heading font-bold text-xl sm:text-2xl text-navy mb-2">
+                <h3 className="font-sans font-normal text-xl sm:text-2xl text-navy mb-2">
                   {plan.name}
                 </h3>
                 <p className="text-gray text-xs sm:text-sm mb-4 sm:mb-6">
@@ -96,7 +96,7 @@ export default function Pricing() {
                 </p>
                 
                 <div className="mb-4 sm:mb-6">
-                  <span className="font-heading font-bold text-3xl sm:text-4xl text-navy">
+                  <span className="font-sans font-normal text-3xl sm:text-4xl text-navy">
                     {plan.price}
                   </span>
                   <span className="text-gray ml-1 sm:ml-2 text-sm sm:text-base">
@@ -121,7 +121,7 @@ export default function Pricing() {
               </ul>
 
               <button 
-                className={`w-full py-3 sm:py-4 rounded-xl font-heading font-semibold transition-all duration-300 text-sm sm:text-base ${
+                className={`w-full py-3 sm:py-4 rounded-xl font-sans font-normal transition-all duration-300 text-sm sm:text-base ${
                   plan.popular
                     ? 'bg-navy text-white hover:bg-opacity-90'
                     : 'bg-light-blue text-navy hover:bg-navy hover:text-white'
@@ -151,7 +151,7 @@ export default function Pricing() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                 </svg>
               </div>
-              <h4 className="font-heading font-semibold text-navy mb-2 text-sm sm:text-base">No Setup Fees</h4>
+              <h4 className="font-sans font-normal text-navy mb-2 text-sm sm:text-base">No Setup Fees</h4>
               <p className="text-gray text-xs sm:text-sm">Get started immediately with no upfront costs or hidden fees.</p>
             </div>
             <div>
@@ -160,7 +160,7 @@ export default function Pricing() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h4 className="font-heading font-semibold text-navy mb-2 text-sm sm:text-base">30-Day Guarantee</h4>
+              <h4 className="font-sans font-normal text-navy mb-2 text-sm sm:text-base">30-Day Guarantee</h4>
               <p className="text-gray text-xs sm:text-sm">Not satisfied? Cancel within 30 days for a full refund.</p>
             </div>
             <div>
@@ -169,7 +169,7 @@ export default function Pricing() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 110 19.5 9.75 9.75 0 010-19.5z" />
                 </svg>
               </div>
-              <h4 className="font-heading font-semibold text-navy mb-2 text-sm sm:text-base">Cancel Anytime</h4>
+              <h4 className="font-sans font-normal text-navy mb-2 text-sm sm:text-base">Cancel Anytime</h4>
               <p className="text-gray text-xs sm:text-sm">Flexible month-to-month billing with no long-term contracts.</p>
             </div>
           </div>

@@ -199,7 +199,7 @@ export default function LeadForm() {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="font-heading font-bold text-3xl md:text-4xl text-white mb-6">
+            <h2 className="font-sans font-normal text-3xl md:text-4xl text-white mb-6">
               Ready to Simplify Your Accounting?
             </h2>
             <p className="text-xl text-white/90">
@@ -214,7 +214,7 @@ export default function LeadForm() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-heading font-bold text-2xl text-navy mb-4">
+              <h3 className="font-sans font-normal text-2xl text-navy mb-4">
                 Thanks — we&apos;ll reach out within 24 hours.
               </h3>
               <p className="text-gray mb-6">
